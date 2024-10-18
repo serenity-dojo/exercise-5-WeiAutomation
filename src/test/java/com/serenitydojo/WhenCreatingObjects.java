@@ -9,29 +9,44 @@ import static org.hamcrest.core.IsEqual.equalTo;
 public class WhenCreatingObjects {
     @Test
     public void creating_a_dog() {
-        Dog fido = new Dog("Fido","Bone", 5);
+        Dog fido = new Dog("Fido", "Bone", 5);
         Assert.assertEquals(fido.getName(), "Fido");
-        Assert.assertEquals(fido.getFavoriteToy(), "Bone");
+        Assert.assertEquals(fido.getFavoriteGame(), "Bone");
         Assert.assertEquals(fido.getAge(), 5);
     }
 
     @Test
+    public void creating_a_cat() {
+        Cat fido = new Cat("Spot", "String", 5);
+        Assert.assertEquals(fido.getName(), "Spot");
+        Assert.assertEquals(fido.getFavoriteGame(), "String");
+        Assert.assertEquals(fido.getAge(), 5);
+    }
+
+    @Test
+    public void creating_a_hamster() {
+        Hamster hazel = new Hamster("Hazel", 1, "Wheels");
+    }
+
+
+    @Test
     public void whenADogBarks() {
-        Dog fido = new Dog("Fido","Bone", 5);
+        Dog fido = new Dog("Fido", "Bone", 5);
 
         String dogSound = "";
         // TODO: implement a method in the Dog sound called makeNoise() that returns the sound a dog makes: "Woof", e.g.
         dogSound = fido.makeNoise();
+        System.out.println(fido.makeNoise());
 
         Assert.assertEquals(dogSound, "Woof");
     }
 
     @Test
     public void whenADogGetsFed() {
-        Dog fido = new Dog("Fido","Bone", 5);
+        Dog fido = new Dog("Fido", "Bone", 5);
 
         // TODO: implement a method in the Dog sound called feed() that sets the isFed variable to true:
-         fido.feed();
+        fido.feed();
 
         Assert.assertTrue(fido.isFed());
 
@@ -39,14 +54,19 @@ public class WhenCreatingObjects {
 
     @Test
     public void whenAnimalsPlay() {
-// TODO: Uncomment me
-//
-//        Pet fido = new Dog("Fido","Bone", 5);
-//        Pet spot = new Cat("Spot","String", 5);
-//        Pet hazel = new Hamster("Hazel", 1, "Wheel");
-//
-//        assertThat(fido.play(), equalTo("plays with bone"));
-//        assertThat(spot.play(), equalTo("plays with string"));
-//        assertThat(hazel.play(), equalTo("runs in wheel"));
+
+        Pet fido = new Dog("Fido", "Bone", 5);
+        Pet spot = new Cat("Spot", "String", 5);
+        Pet hazel = new Hamster("Hazel", 1, "Wheel");
+
+        System.out.println(fido.play());
+        System.out.println(spot.play());
+        System.out.println(hazel.play());
+
+        assertThat(fido.play(), equalTo("plays with bone"));
+        assertThat(spot.play(), equalTo("plays with string"));
+        assertThat(hazel.play(), equalTo("runs in wheel"));
+
+
     }
 }
